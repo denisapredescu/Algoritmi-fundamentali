@@ -1,0 +1,44 @@
+# determinarea componentelor conexe
+
+def citire(file, tip): 
+    f = open(file) 
+    n,m=[int(x) for x in f.readline().split()]
+    la = [[] for i in range(n+1)]
+    for i in range(m):
+        m1,m2= [int(x) for x in f.readline().split()]
+        la[m1].append(m2)
+        if tip == 1:    #tip = 1 neorientat; tip = 2 orientat
+            la[m2].append(m1)
+    f.close()
+    return n,m,la
+
+def dfs(x):
+    viz[x] = 1  #il pun ca vizitat
+    #afis.append(x)
+    
+    for vf in la[x]:  #ma duc in fii nodului curent 
+        
+        if viz[vf] == 0: #daca nu a fost inca vizitat, intru in el si repet pasii
+           # tata[vf] = x
+            dfs(vf)
+
+    print(x, end=" ")
+    
+    return 0
+            
+
+n,m,la=citire("graf.in", 1) #graf neorientat
+for i in range(1,n+1):
+    print(i,":",end=" ")
+    for j in la[i]:
+        print(j,end=" ")
+    print()
+    
+viz = [0 for i in range(n+1)]
+# tata = [0 for i in range(n+1)]
+
+for i in range(1, n+1):
+    if viz[i] == 0:
+        print("Componenta cu nodurile: ", end="")
+        dfs(i)
+        print()
