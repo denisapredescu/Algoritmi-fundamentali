@@ -1,2 +1,2 @@
-# Programarea-algoritmilor-
-PA - An 2, Sem 1
+# Algoritmi fundamentali
+AF - An 2, Sem 1
