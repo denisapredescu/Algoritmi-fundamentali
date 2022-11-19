@@ -1,2 +1,2 @@
 # Algoritmi fundamentali
-AF - An 2, Sem 1
+Algoritmi facuti in cadrul laboratoarelor de AF la UniBuc. 
